@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import './App.css';
 import PokemonCard from './component/PokemonCard'
+import Signup from './component/Signup'
 import LoadingGif from './images/pokeball.gif'
 import NavBar from './component/Navbar'
 import Button from 'react-bootstrap/Button';
 import {getPokemon, getAllPokemon} from './services/pokemon'
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
   const [pokedeck, setPokedeck] = useState([]);
@@ -56,6 +58,9 @@ function App() {
   return (
     <>
     <NavBar/>
+    <AuthProvider>
+      <Signup/>
+    </AuthProvider>
     <div className="App container overflow-hidden">
       <br/>
       <br/>
